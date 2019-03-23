@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <!-- el submit puede ir con el metodo get, le indico comp uede viajar la info
+            Con el GET va por la url (no recomendado para el login es visible) 
+            Con el POST va en el body del request
+            En el action va la dir de la url o del archivo ej: archivo.php o localhost:...
+        -->
+        <form action="" method="POST">
+            <legend>Login</legend>
+            Usuario: <br>
+            <input type="text" id="txtUsr" name="usrName"> <br>
+            Contraseña: <br>
+            <input type="text" id="txtPass" name="usrPass"> <br>
+            <input type="checkbox" id="checkRecordar" name="">
+            Recordar y usar contraseña <br>
+            <input type="submit">
+            <input type="reset" value="Limpiar">            
+        </form>
+    </body>
+</html>

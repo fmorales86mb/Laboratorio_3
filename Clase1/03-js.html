@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+
+    <!-- js es un lenguaje interpretado, el navegador va a leer linea a línea
+        y cuando llegue al script va a quedar ahí hasta que le de aceptar. Es
+        decir que no llega a cargar la pagina. 
+        Las variables son débilmente tipadas en JS.
+        
+    -->
+    <script type="text/javaScript">        
+        var nombre;
+                
+        // nombre = "PEPE!";
+        nombre = 4;
+
+        function Saludar(params) {
+            // con el == el 4 es igual al "4"
+            // con el === eso es falso
+            if (params == "4")
+            {
+                alert(" hola == ");
+            }
+            else
+            {
+                alert(" hola else");
+            }                        
+        }        
+
+        Saludar(nombre);
+    </script>
+</head>
+<body>
+    <p id="p1">Página cargada</p>
+</body>
+</html>
