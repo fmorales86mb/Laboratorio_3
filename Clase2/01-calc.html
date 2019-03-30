@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- define la escala de la pantalla.. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/01-calc.js"></script>
+    <link rel="stylesheet" href="./03-estilo.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <!-- Form -->
+    <form>
+        <legend>Sumar números</legend>
+        <h4>Se deben ingresar dos números y hacer click en el botón Sumar para ver el resultado.</h4>
+        
+        <br>
+        <input class="txtInput" type="number" id="nro1"> <label class="lbl">+</label> <input class="txtInput" type="number" id="nro2">
+        <input class="boton rojo" type="button" id="btnSumar" value="Sumar">
+        <input class="boton verde" type="button" id="btnSumarGuardar" value="Sumar y Guardar">
+        <hr>
+
+        Resultado:
+        <input class="txtInput" type="number" id="result" readonly>
+        <hr>
+
+        <h2>Historial de Resultados</h2>
+
+        <!-- Tabla -->
+        <!-- <table border="colapse"> -->
+        <table id="tabla">
+            <thead>
+                <th>Número 1</th>
+                <th>Número 2</th>
+                <th>Resultado</th>
+            </thead>
+            <tbody id="bodyTable">
+                <!-- Agrego dinámicamente el html -->
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+
+    </form>    
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* La idea es que todos los estilos esten en un archivo separado
+del html.
+tres maneras de setear estilos:
+- pueden ir en los tags del html
+- pueden ir en el head del html.
+- en un archivo separado.
+ 
+-crl + barra, muestra las opciones de estilo
+- al texto plano (al que no està en ningún tag) no le podemos dar estilo, por lo tanto siempre hay que 
+ponerlo en algun lugar
+- el orden del agregado de los estilos importa. Lee de arriba para abajo. Si hay un estilo en linea usa ese porque
+es el último que lee. Si hay más de una hoja de estilo y se repiten clases, toma la ùltima agregada.
+- lo más importante es recordar cómo posicionar los objetos.
+*/
+
+/* todos los párrafos */
+p{
+    color: royalblue;
+    font-size: 14pt;    
+}
+
+/* setea sólo los p class negrita. Los parámetros que no se seteen
+    y que esten seteados en otro estilo, van a tomar la forma del 
+    estilo seteado. Ej: size */
+p.negrita{
+    color: black;
+    font-weight: bold;    
+}
+
+h1, h4{
+    color: orange;
+    background-color: brown;
+}
+
+/* va con el pto adelante. Toma a todos los elementos class subt */
+.subt{
+    background-color: yellow;
+}
+
+ /* puedo sumar estilos, ej: .boton + .verde */
+.boton{        
+    color: white;
+    font-weight: bold;
+    height: 50px;
+    border-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.verde{
+    background-color: green;
+}
+.rojo{
+    /* margin, todos los márgenes externos de la cosa. 
+    Orden como las agujas del reloj, empezando por arriba */
+    margin: 50px 20px 50px 20px;
+
+    /* Espacio entre lo interno de la cosa y el borde. 
+    Orden igual al margin */
+    padding: 10px 30px 0px 20px;
+
+    /* Estan seteados los colores ppales, pero se puede agregar
+     el código directamente.*/
+    background-color: red;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td{
+    text-align: center;
+}
+
+.txtInput{
+    height: 30px;
+    width: 100px;
+    margin-left: 30px;
+    text-align: right;
+}
+
+.lbl{
+    margin: 30px;
+}
+
