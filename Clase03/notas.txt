@@ -1,0 +1,4 @@
+ver call back con ajax.
+
+removeAtribute("class", "saraza");
+addAtribute...
