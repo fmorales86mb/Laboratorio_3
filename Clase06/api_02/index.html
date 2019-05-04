@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grilla Personas</title>
+    
+    <script src="./js/get.js"></script>
+    <script src="./js/index.js"></script>
+
+    <link rel="stylesheet" href="./css/grilla.css">
+</head>
+<body>
+        <header>
+                
+        </header>
+                
+        <input type="button" value="Agregar" id="btnAgregar">
+
+        <section id="">
+
+        </section>
+    
+        <!-- Formulario -->
+        <section class="contenedor" hidden id="formulario">
+            <form action="">
+                <input type="button" value="X" class="btnX" id="btnX"><br>
+                <span>Nombre</span><br>
+                <input type="text" id="nombreTxt" placeholder="Ingrese nombre..." class="sinError"><br>
+                <span>Apellido</span><br>
+                <input type="text" id="apellidoTxt" placeholder="Ingrese apellido..." class="sinError"><br>
+                <input type="button" value="Guardar" id="btnGuardar"><br>
+            </form>
+        </section>
+    
+        <!-- Grilla -->
+        <section>
+            <h3>Lista de personas</h3><br>
+            <table>
+                <thead>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Fecha</th>
+                        <th>Teléfono</th> 
+                        <th></th>                       
+                </thead>
+                <tbody id="bodyTabla">
+                </tbody>                        
+            </table>
+        </section>
+    
+        <!--  -->
+        <footer>
+    
+        </footer>
+</body>
+</html>

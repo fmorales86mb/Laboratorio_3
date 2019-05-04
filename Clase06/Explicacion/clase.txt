@@ -1,0 +1,20 @@
+DOM
+Formas de recorrer la estructura de árbol sin necesidad del id de los elementos.
+
+Hijos:
+    childNode: trae array de hijos
+        trae elementos y a texto, todo (saltos de línea inclusive).
+    children: trae array de sólo elementos (con sus textos en caso de que los tengan).
+        nodeName: 
+        nodeType:
+        firstChild: primer elementos
+        lastElementChild: último elementos
+
+Padre:
+    parentNode: trae al padre
+
+Hermanos:
+    nextElementSibling: 
+    nextSibling: siguiente elemento al mismo nivel. (hermanos)
+
+
