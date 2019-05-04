@@ -1,0 +1,21 @@
+AJAX
+
+la creo google
+no es un lenguaje es un cojuto de tecnologìas
+permite refrescar componentes y no la pag entera.
+xmlhttprequest - asincrono
+
+
+instalar node.js
+ip: http://192.168.2.28:3000/login
+http://localhost:3000/login
+node index.js en consola
+
+parcial 10/05
+    parcial con acceso a internet
+repaso 03/05
+
+
+JSON
+Objetos en js (clave : valor)
+var per = {"nombre": "juan", "edad":"20"};

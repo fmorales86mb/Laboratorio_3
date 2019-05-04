@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src= "./js/index.js" ></script> 
+    <link rel="stylesheet" href = "./modeloParcial.css"> 
+</head>
+
+<body>
+    Ingrese nuevo Post:
+        <input type="button" id="btnNewPost" value="Nuevo Post"  />
+    
+        <div class= "contenedor" id ="contenedor" hidden>
+                <form>
+                        <input type = "button" class = "cancelar" value = "x" id = "btnCerrar">  
+                        <br>
+                    Titulo <br>
+                    <input type= "text" placeholder= "Titulo.." name = "txtTitulo" size = "50" maxlength="100" id= "titulo"/><br>
+                    Header <br>
+                       <input type= "text" placeholder= "Tu header..." name = "txtHeader" size = "50" maxlength="150" id= "header"/> 
+                       <br>
+                       Texto <br>
+                       <input type= "text" placeholder= "Tu texto..." name = "txtTexto" size = "5000" maxlength="5000" id= "texto"/> 
+                       <br>
+
+                      <input type = "button" class=  "verde" value = "Post" id = "btnGuardar"> 
+                       <br>
+                    </form>
+        </div>
+
+        <div class="fixed" id=load hidden>
+            
+                <img src="./gif.gif">
+                hoal
+               
+
+        </div>
+</body>
+
+</html>
