@@ -1,15 +1,16 @@
 var xml = new XMLHttpRequest;
 var url = "http://localhost:3000/";
 var api = "personas";
-var metodo = "GET";
 
 window.addEventListener("load", function(){
-    getPersonas();
+    getElementos();
     var btnX = document.getElementById("btnX");
     var btnAgregar = document.getElementById("btnAgregar");
+    var btnGuardar = document.getElementById("btnGuardar");
     
     btnAgregar.addEventListener("click", clickAgregar);
     btnX.addEventListener("click", clickCerrar);
+    btnGuardar.addEventListener("click", clickGuardar);
 });
 
 function datosToGrilla(arrayDatos){    
@@ -26,8 +27,7 @@ function agregarTr(arrayDatosFila){
 }
 
 function crearElementoTr(arrayDatosFila){
-    var r = document.createElement("tr");    
-    //var indexName = ["nombre", "apellido", "fecha", "telefono"];
+    var r = document.createElement("tr");        
     var indexName = Object.keys(arrayDatosFila);
 
     for (var i =0; i<indexName.length; i++){                    
@@ -85,17 +85,16 @@ function modificarFila(event){
         console.log(parent.nodeName);    
     }
 
-    parent.isContentEditable = true;
-    console.log(parent);
-    // TODO:    
+    var arrayTxt = extraerArrayTxtTr(parent);
+    mostrarFormulario(true);
+    cargarDatosEnFormulario(arrayTxt);
+    console.log(parent);    
 }
 
-
-
 function extraerArrayTxtTr(tr){
-    var arrayTxt = new arrayTxt();
+    var arrayTxt = new Array();
 
-    for(var i = 0; i<tr.cells.length; i++){
+    for(var i = 0; i<tr.cells.length; i++){        
         arrayTxt[i]= extraerTxtTd(tr.cells[i]);
     }
     
@@ -103,7 +102,8 @@ function extraerArrayTxtTr(tr){
 }
 
 function extraerTxtTd(td){
-    return td.text; // ver si rompe al no tener txt
+    console.log(td);
+    return td.innerText; // ver si rompe al no tener txt
 }
 
 function clickAgregar(){
@@ -123,3 +123,34 @@ function clickCerrar(){
     mostrarFormulario(false);
 }
 
+function clickGuardar(){
+    var jsonData = tomarDatosFormulario();
+    agregarTr(jsonData);
+}
+
+function resetearTxt(){
+    $("nombreTxt").value = "";
+    $("apellidoTxt").value = "";
+    $("fechaTxt").value = "";
+    $("telefonoTxt").value = "";
+}
+
+function cargarDatosEnFormulario(jsonData){
+    $("nombreTxt").value = jsonData[0];
+    $("apellidoTxt").value = jsonData[1];
+    $("fechaTxt").value = jsonData[2];
+    $("telefonoTxt").value = jsonData[3];
+}
+
+function tomarDatosFormulario(){
+    var nombre = $("nombreTxt").value;
+    var apellido = $("apellidoTxt").value;
+    var fecha = $("fechaTxt").value;
+    var telefono = $("telefonoTxt").value;
+    var jsonData = {nombre, apellido, fecha, telefono};
+    return jsonData;
+}
+
+function $(id){
+    return document.getElementById(id);
+}

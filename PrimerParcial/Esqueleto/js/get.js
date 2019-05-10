@@ -1,7 +1,14 @@
-function getPersonas(){
+function getElementos(){
     xml.onreadystatechange = callBack;
     strParametros = "";
-    xml.open(metodo, url+api+strParametros, true);
+    xml.open("GET", url+api+strParametros, true);
+    xml.send();
+}
+
+function getPersonasById(){
+    xml.onreadystatechange = callBack;
+    strParametros = "";
+    xml.open("GET", url+api+strParametros, true);
     xml.send();
 }
 
