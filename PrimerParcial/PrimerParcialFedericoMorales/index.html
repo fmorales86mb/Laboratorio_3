@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grilla Materias</title>
+    
+    <script src="./js/get.js"></script>
+    <script src="./js/post.js"></script>
+    <script src="./js/index.js"></script>
+
+    <link rel="stylesheet" href="./css/grilla.css">
+</head>
+<body>
+        <header>
+                
+        </header>
+                        
+        <section id="">
+
+        </section>
+    
+        <!-- Formulario -->
+        <section class="contenedor" hidden id="formulario">
+            <form >
+                <span id="id" hidden></span>
+                <input type="button" value="X" class="btnX" id="btnX"><br>
+                
+                <span>Nombre:</span><br>
+                <input type="text" id="nombreTxt" placeholder="Ingrese nombre..." class="sinError"><br>
+                
+                <span>Cuatrimestre:</span><br>
+                <select id="cuatrimestreTxt" disabled>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                </select>                
+                
+                <span>Fecha Final:</span><br>
+                <input type="date" id="fechaTxt" min="2019-05-10"><br>
+                
+                <span>Turno:</span><br>                   
+                <input type="radio" name="turnoTxt" id="maniana" value="Mañana" >Mañana<br>
+                <input type="radio" name="turnoTxt" id="noche" value="Noche" >Noche<br>                               
+                                                                              
+                <input type="button" value="Modificar" id="btnModificar" class="btnModificar">
+                <input type="button" value="Eliminar" id="btnEliminar" class="btnEliminar">
+            </form>
+        </section>
+    
+        <!-- Grilla -->
+        <section>
+            <h3>Lista de Materias</h3><br>
+            <table>
+                <thead>
+                        <th hidden></th>
+                        <th>Nombre</th>
+                        <th>Cuatrimestre</th>
+                        <th>Fecha Final</th>
+                        <th>Turno</th> 
+                </thead>
+                <tbody id="bodyTabla">
+                </tbody>                        
+            </table>
+        </section>
+
+        <!-- Spinner -->
+        <div class="display-spinner" id="spinner" hidden>
+            <img class="spinner" src="./img/spinner.gif" alt="">
+        </div>
+    
+        <!--  -->
+        <footer>
+    
+        </footer>
+</body>
+</html>

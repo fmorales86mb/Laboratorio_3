@@ -1,0 +1,60 @@
+jquery framework de js
+
+se descarga de la pàgina el js mimificado (sòlo pesa menos)
+se incluye primero en el proyecto, luego nuestros js.
+
+-----
+
+con la consola vamos a crear un proyecto con npm
+para usar el npm se instala primero el node
+
+crear un proyecto: npm init
+se cargan los datos del proyecto
+
+paquetes: npm install jquery --save
+(hay que incluirlo en el html)
+
+esto hace que cuando subamos esto a un repositorio sòlo sube el index y el package.
+cuando me lo descargo al repo me baja lo mismo, index y package. 
+entonces hacemos : npm install
+y me instala los paquetes.
+
+---------
+ver w3school
+
+$(document)....
+
+$("p") trae todos los elementos <p>
+
+$("#id")... el numeral significa que es un id (un solo elemento)
+
+$(.clase) trae todos los elementos de esa clase
+
+$(:) : imput ver
+
+$(#btn).click es lo mismo que el add event listener...
+
+.val() retorna el valor
+.val("bla") setea el valor
+
+.html() retorna
+.html("algo") setea
+---------
+
+$.get (route, function (data, status))
+
+data: es la respuesta en formato json
+status:
+
+$.post(route, json, function(data, status))
+
+------------
+
+Manejo de Imàgenes/archivos
+
+input type file:
+$("input").change  se ejecuta cuando cambia el estado del input. Cualquier imput
+propiedad accept se puede pasar el tipo de archivo que levanta el input
+
+
+
