@@ -15,13 +15,11 @@ function datosToGrilla(data, status){
         var tr = crearElementoTr(data[i]);        
         $("#bodyTabla").append(tr);
     }
-
-    // filtro: tr que tengan td, para no tomar el header.    
-    $("tr:has('td')").dblclick(cargarFormulario);
 }
 
 function crearElementoTr(jsonDatosFila){
     var tr = document.createElement("tr");
+    $(tr).dblclick(cargarFormulario);
     var indexName = Object.keys(jsonDatosFila);
 
 

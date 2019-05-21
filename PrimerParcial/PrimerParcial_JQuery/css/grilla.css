@@ -1,19 +1,39 @@
 /* Grilla */
-th, td{
-    text-align: left;
-    padding: 8px;
+.display-grilla{
+  margin: 18px;
 }
+
+table{  
+  border-collapse: collapse;
+  width: 100%;
+}
+
+h2{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #252424;
+}
+
 th{
-    background: lightseagreen;
-    color: white;
+  background: rgb(73, 112, 110);
+  color: white;
 }
+
+th, td{
+  text-align: left;
+  padding: 8px;    
+  border: 1px solid #ddd;   
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
 tr:nth-child(even){ /* estilo para los impares */
-    background-color: grey;
+  background-color: #f2f2f2;
 }
-table{
-    border-collapse: collapse;
-    width: 100%;
+
+tr:hover{
+  background-color: #ddd;
 }
+
+
 
 
 /*

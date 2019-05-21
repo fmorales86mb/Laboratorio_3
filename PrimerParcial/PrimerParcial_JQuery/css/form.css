@@ -1,17 +1,27 @@
 /* Form */
-.contenedor{
+.display-form{       
+    position: fixed;
+    right: 0%;
+    top: 0%; 
+    width: 100%;
+    background-color: rgba(165, 166, 168, 0.411);    
+    min-height: 100%;
+    height: auto;
+}
+
+.form-base{
     /* position: absolute;    */
     position: fixed;
     right: 25%;
-    top: 15%; 
+    top: 10%; 
 
     /* animacion: agrego un keyframes y le mando tiempo */
     animation-name: aparecer;
     animation-duration: 1s;
-
+    opacity: 1;
     width: 50%;
     border-radius: 5px;
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(144, 158, 158);
     padding: 20px;
     border: 1px solid #ccc;
 }
