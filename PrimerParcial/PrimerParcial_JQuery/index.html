@@ -10,6 +10,8 @@
     <script src="./scripts/index.js"></script>
 
     <link rel="stylesheet" href="./css/grilla.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/spinner.css">
 </head>
 <body>
     
@@ -19,10 +21,10 @@
                 <span id="id" hidden></span>
                 <input type="button" value="X" class="btnX" id="btnX"><br>
                 
-                <span>Nombre:</span><br>
+                <label for="nombreTxt">Nombre:</label><br>
                 <input type="text" id="nombreTxt" placeholder="Ingrese nombre..." class="sinError"><br>
                 
-                <span>Cuatrimestre:</span><br>
+                <label for="cuatrimestreTxt">Cuatrimestre:</label><br>
                 <select id="cuatrimestreTxt" disabled>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -30,15 +32,23 @@
                         <option value="4">4</option>
                 </select>                
                 
-                <span>Fecha Final:</span><br>
+                <label for="fechaTxt">Fecha Final:</label><br>
                 <input type="date" id="fechaTxt"><br>
                 
-                <span>Turno:</span><br>                   
-                <input type="radio" name="turnoTxt" id="maniana" value="Mañana" >Mañana<br>
-                <input type="radio" name="turnoTxt" id="noche" value="Noche" >Noche<br>                               
-                                                                              
-                <input type="button" value="Modificar" id="btnModificar" class="btnModificar">
-                <input type="button" value="Eliminar" id="btnEliminar" class="btnEliminar">
+                <label for="nombreTxt">Turno:</label><br>                 
+                <div class="radios-div">
+                    <input type="radio" name="turnoTxt" id="maniana" value="Mañana" >
+                    <label for="nombreTxt">Mañana</label><br>
+                    
+                    <input type="radio" name="turnoTxt" id="noche" value="Noche" >
+                    <label for="nombreTxt">Noche</label><br>                               
+                </div>
+                    
+                <div>
+                    <input type="button" value="Modificar" id="btnModificar" class="btnModificar">
+                    <input type="button" value="Eliminar" id="btnEliminar" class="btnEliminar">
+                </div>
+                
             </form>
         </section>
     

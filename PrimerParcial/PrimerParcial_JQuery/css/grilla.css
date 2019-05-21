@@ -1,110 +1,20 @@
-
+/* Grilla */
 th, td{
     text-align: left;
     padding: 8px;
 }
-
-.display-spinner{       
-    position: fixed;
-    right: 0%;
-    top: 0%; 
-    width: 100%;
-    background-color: rgba(132, 209, 233, 0.411);
-    opacity: 0.3;
-    min-height: 100%;
-    height: auto;
-}
-
-.spinner{
-    position: absolute;
-    right: 50%;
-    top: 40%;
-    width: 60px; 
-    height: 60px;    
-}
-
 th{
     background: lightseagreen;
     color: white;
 }
-
-input[type=text]{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0px;
-    display: inline-block;
-
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-input[type=button]:hover{
-    background-color: green;
-}
-
-/* estilo para los impares */
-tr:nth-child(even){
+tr:nth-child(even){ /* estilo para los impares */
     background-color: grey;
-
 }
-
 table{
     border-collapse: collapse;
     width: 100%;
 }
 
-.contenedor{
-    /* position: absolute;    */
-    position: fixed;
-    right: 25%;
-    top: 25%; 
-
-    /* animacion: agrego un keyframes y le mando tiempo */
-    animation-name: aparecer;
-    animation-duration: 2s;
-
-    width: 50%;
-    border-radius: 5px;
-    background-color: gray;
-    padding: 20px;
-}
-
-.sinError{
-    border: 4px solid green;
-}
-
-.conError{
-    border: 4px solid red;
-}
-
-/* .base{
-    position: relative;
-    height: 100%;
-} */
-
-.btnX{
-    margin: 0 0 8px;
-    color: white;
-    background-color: rgb(25, 54, 136);
-}
-
-.btnModificar{
-    margin: 0 0 8px;
-    color: rgb(77, 64, 64);
-    background-color: rgb(25, 214, 88);
-}
-
-.btnEliminar{
-    margin: 0 0 8px;
-    color: rgb(238, 156, 156);
-    background-color: red;
-}
-
-/* Genera un desde y un hasta */
-@keyframes aparecer{
-    from{opacity: 0}
-    to{opacity: 1}
-}
 
 /*
     con #nombre{} se setea el estilo de tal elemento por id
