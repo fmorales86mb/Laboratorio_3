@@ -55,6 +55,7 @@ function cargarFormulario(){
     };    
 
     cargarDatosEnFormulario(obj);
+    estadoInicialForm();
     $("#formulario").show();
 }
 
@@ -102,20 +103,47 @@ function aFechaConGuion(date){
 }
 
 function clickModificar(){
-    var jsonObj = tomarDatosFormulario();
-    $("#spinner").show();  
+    if(validarDatosForm()){
+        var jsonObj = tomarDatosFormulario();
+        $("#spinner").show();  
+    
+        $.post(Url+"editar", jsonObj, function(data, status){              
+            if(data["type"] == "ok"){
+                var trNuevo = crearElementoTr(jsonObj);
+                TrDbClick.replaceWith(trNuevo);
+                $("#formulario").hide();
+            }else{
+                console.log(status, data);
+            }    
+            $("#spinner").hide();     
+        });
+    }
+}
 
-    $.post(Url+"editar", jsonObj, function(data, status){              
-        if(data["type"] == "ok"){
-            var trNuevo = crearElementoTr(jsonObj);
-            TrDbClick.replaceWith(trNuevo);
-            $("#formulario").hide();
-        }else{
-            console.log(status, data);
-        }    
-        $("#spinner").hide();     
-    });  
+function validarDatosForm(){
+    var validos = true;
+    var today = new Date();
 
+    var fechaArr = $("#fechaTxt").val().split("-");
+    var fecha = new Date(fechaArr[0], fechaArr[1], fechaArr[2]);
+
+    console.log(fecha);
+    if(fecha.getDate == undefined || fecha < today){
+        $("#fechaTxt").attr("class", "conError");
+        validos = false;
+    }
+    if($("#nombreTxt").val().length < 6){
+        $("#nombreTxt").attr("class", "conError");
+        validos = false;
+    }
+    
+
+    return validos;
+}
+
+function estadoInicialForm(){
+    $("#fechaTxt").attr("class", "");
+    $("#nombreTxt").attr("class", "");
 }
 
 function clickEliminar(){

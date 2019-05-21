@@ -34,7 +34,9 @@ tr:hover{
 }
 
 
-
+/* 
+  Al parecer los estilos de los elementos dom pisan siempre a los de las clases.
+*/
 
 /*
     con #nombre{} se setea el estilo de tal elemento por id

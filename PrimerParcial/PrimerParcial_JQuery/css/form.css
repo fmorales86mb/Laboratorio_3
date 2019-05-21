@@ -48,9 +48,7 @@ select{
     width: 100%;
 }
 
-input[type=button]{    
-    background-color: #4CAF50;
-    color: white;
+input[type=button]{        
     padding: 9px 15px;
     margin: 8px 0;
     border: none;
@@ -59,37 +57,48 @@ input[type=button]{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-input[type=button]:hover{
-    background-color: #45a049;
+.btn{
+    color: rgb(206, 197, 197);
+    background-color: #525a7c;
+}
+
+.btn:hover{
+    background-color: #4a537a;
 }
 
 .sinError{
-    border: 4px solid green;
+    border: 2px solid rgb(16, 158, 16);
 }
 
 .conError{
-    border: 4px solid red;
+    border: 2px solid rgb(252, 48, 48);
 }
 
-.btnX{  
+.X{  
     position: relative;
     left: 95%;  
 }
 
-.btnModificar{   
+.Modificar{   
     position: relative;
     left: 2%;
     width: 45%;
-    color: rgb(77, 64, 64);
-    background-color: rgb(25, 214, 88);    
+    background-color: rgb(5, 151, 54);    
 }
 
-.btnEliminar{  
+.Modificar:hover{
+    background-color: rgb(4, 122, 44);    
+}
+
+.Eliminar{  
+    background-color: rgb(158, 29, 29);
     position: relative;
     left: 8%;
-    width: 45%;  
-    color: rgb(238, 156, 156);
-    background-color: rgb(218, 21, 21);
+    width: 45%;     
+}
+
+.Eliminar:hover{  
+    background: rgb(146, 12, 12);
 }
 
 /* Genera un desde y un hasta */
