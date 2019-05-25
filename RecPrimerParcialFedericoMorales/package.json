@@ -1,0 +1,14 @@
+{
+  "name": "primerparcial_jquery",
+  "version": "1.0.0",
+  "description": "Primer parcial hecho con jQuery",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Federico Morales",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}

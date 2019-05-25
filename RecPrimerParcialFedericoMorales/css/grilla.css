@@ -1,0 +1,75 @@
+/* Grilla */
+.display-grilla{
+  margin: 18px;
+}
+
+table{  
+  border-collapse: collapse;
+  width: 100%;
+}
+
+h2{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #252424;
+}
+
+th{
+  background: rgb(73, 112, 110);
+  color: white;
+}
+
+th, td{
+  text-align: left;
+  padding: 8px;    
+  border: 1px solid #ddd;   
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+tr:nth-child(even){ /* estilo para los impares */
+  background-color: #f2f2f2;
+}
+
+tr:hover{
+  background-color: #ddd;
+}
+
+.imagen{
+  height: 80px;
+  border-radius: 40px;
+}
+
+/* 
+  Al parecer los estilos de los elementos dom pisan siempre a los de las clases.
+*/
+
+/*
+    con #nombre{} se setea el estilo de tal elemento por id
+*/
+
+/*  
+    Se setea con display
+    
+    inline: solo lo que ocupa el elemento, va uno al lado dle otro, no se le puede setear un ancho, ej <a>
+    block: 100% de la pantalla, puede setearse el ancho, ej <p>, <div>
+
+    puedo meter un inline en un block pero no al revés.
+*/
+
+/* 
+    Posicionamiento en CSS (para elemento tipo box):
+
+    - margin auto se centrea.
+    - el ancho del borde se suma al ancho del elemento.
+    - box-sizing: border-box hace que meta todos los anchos dentro del ancho del elemento y no se sumen.
+      Se usa para todo, para no andar calculando y se ordenen mejor los elementos.
+    
+    - static: por defecto.
+    - relative: idem static, acepta propiedades..
+      propiedades; top, left, botton, rigth. Con todo 0 es como un static, pero cambiando los valores
+      se posiciona sobre el otro relative..
+    - absolute: es para un box adentro de otro box
+      padre relative, hijo absolute. Lo puedo mover dentro del padre. Absolute premite usar las 
+      propiedades de posicion
+    - fixed: fijo sobre la pantalla
+      position: fixed, luego puedo usar las propiedades de posicion.
+*/

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GOT</title>
+    
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./scripts/index.js"></script>
+
+    <link rel="stylesheet" href="./css/grilla.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/spinner.css">
+</head>
+<body>       
+        <!-- Grilla -->
+        <section class="display-grilla">
+            <h2>Lista de Personajes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th hidden>id</th>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Estado</th> 
+                    </tr>                        
+                </thead>
+                <tbody id="bodyTabla">
+                </tbody>                        
+            </table>
+        </section>
+
+        <!-- Spinner -->
+        <div class="display-spinner" id="spinner" hidden>
+            <img class="spinner" src="./img/spinner.gif" >
+        </div>
+    
+</body>
+</html>
