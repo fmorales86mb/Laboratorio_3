@@ -150,14 +150,3 @@ function buscarPadreTipo(elementoDom, tipo){
 
     return parent;
 }
-
-
-
-
-
-
-
-
-
-
-
