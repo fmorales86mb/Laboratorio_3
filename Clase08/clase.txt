@@ -1,0 +1,49 @@
+Clase 08
+
+- Map:
+
+El map ejecuta una funcion por cada item. Retorna un array con la misma cantidad 
+de elementos pero con su valor alterado.
+No altera el array original.
+
+- Filter
+
+Retorna un nuevo array con los items filtrados. Se pone una condición. El array
+retornado retorna sólo una parte de los items, no los modifica. 
+
+- Reduce:
+
+Evalua todo el array y obtiene un único resultado.
+Ej: la sumatoria del array.
+Recibe dos parametros, la funcion y el valor inicial del resultado.
+La función recibe al menos dos parámetros, uno es el item y otro es el que se va 
+a retornar (no!, retorna cualquier cosa), que tiene el valor inicial pasado.
+
+- Funcion Anónima:
+
+    (item => a+b) 
+
+es lo mismo que:
+
+    function(item){
+        return a + b;
+    }
+
+- Versiones JS (let/var)
+
+Actualmente se mantiene como estandar la versión 5 de JS. 
+Chrome y Mozilla soportan hasta la 8.
+
+Let: el scope es local. 
+Var: el scope es global. 
+
+Si se repiten el nombre de variables localmente, vale la definida por let.
+
+- Bootstrap (css y js)
+
+npm install --save Bootstrap
+Antes hay que instalar jquery porque los js de bootstrap usan jquery.
+
+Sistema de grillas. 
+Divide el ancho en 12 columnas sin importar el tamaño de la pantalla.
+row divide al div en 12 columnas. Si se suman màs de 12, las otras van para abajo.
