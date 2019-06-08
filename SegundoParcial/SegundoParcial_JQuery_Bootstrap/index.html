@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grilla</title>
+    
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./scripts/index.js"></script>
+
+    <link rel="stylesheet" href="./css/grilla.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/spinner.css">
+</head>
+<body>
+    
+        <!-- Formulario -->
+        <div class="display-form" hidden id="formulario">
+            <form class="form-base">
+                <span id="id" hidden></span>
+                <input type="button" value="X" class="btn X" id="btnX"><br>
+                
+                <label>Nombre:</label>
+                <input type="text" id="nombreTxt" placeholder="Ingrese nombre..."><br>
+                
+                <label>Cuatrimestre:</label>
+                <select id="cuatrimestreTxt" disabled>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                </select>                
+                
+                <label>Fecha Final:</label>
+                <input type="date" id="fechaTxt" required><br>
+                
+                <label>Turno:</label><br>                 
+                <div class="radios-div">
+                    <input type="radio" name="turnoTxt" id="maniana" value="Mañana" >
+                    <label for="nombreTxt">Mañana</label><br>
+                    
+                    <input type="radio" name="turnoTxt" id="noche" value="Noche" >
+                    <label for="nombreTxt">Noche</label><br>                               
+                </div>
+                    
+                <div>
+                    <input type="button" value="Modificar" id="btnModificar" class="btn Modificar">
+                    <input type="button" value="Eliminar" id="btnEliminar" class="btn Eliminar">
+                </div>
+                
+            </form>
+        </div>
+    
+        <!-- Grilla -->
+        <section class="display-grilla">
+            <h2>Lista de Materias</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th hidden>id</th>
+                        <th>Nombre</th>
+                        <th>Cuatrimestre</th>
+                        <th>Fecha Final</th>
+                        <th>Turno</th> 
+                    </tr>                        
+                </thead>
+                <tbody id="bodyTabla">
+                </tbody>                        
+            </table>
+        </section>
+
+        <!-- Spinner -->
+        <div class="display-spinner" id="spinner" hidden>
+            <img class="spinner" src="./img/spinner.gif" >
+        </div>
+    
+</body>
+</html>

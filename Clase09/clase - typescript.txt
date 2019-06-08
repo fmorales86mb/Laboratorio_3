@@ -1,0 +1,12 @@
+Para inestalar por primera vez, el compilador
+    npm install -g typescrypt
+
+para compilar
+    tsc --sourcemap archivo.ts
+
+Compila el archivo en cada cambio que haga. (watch)
+    tsc archivo.ts -w
+ctrl+c se corta.
+
+toma todos los archivos .ts
+*.ts 

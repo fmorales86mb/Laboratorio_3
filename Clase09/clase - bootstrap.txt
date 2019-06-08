@@ -1,0 +1,45 @@
+Bootstrap
+
+GRILLAS, SE TIENE QUE VER BIEN EN TAMAÑO DE CELULAR!!
+
+- Pasos para instalar bootstrap en un proyecto.
+npm init
+npm install --saver jquery
+npm install --save bootstrap
+
+- No se sube el package (la carpeta). Se sube sòlo el json de configuraciòn. Luego al bajar se hace:
+    npm install
+y se instalan los paquetes.
+
+- versiones
+  "dependencies": {
+    "bootstrap": "4.3.1", // se quita la flechita ^ para que no se actualice la versiòn.
+    "jquery": "3.4.1" // idem
+  }
+
+- layout: 
+- alineamiento:
+- anidamiento: row tiene 12 col distribuidas en el espacio disponible.
+- offset: saltear columnas
+- estilos de bootstrap: son las class por defecto, table, etc
+    danger, warning, info, etc.. paleta de colores de bootstrap.
+
+- FORMS: los elementos de un form se ponen en un form group cada uno, inputs, combos, etc.
+    ver estilos en páginas.
+
+- Primero la hoja de estilo de bootstrap y luego la nuestra que pisa o modifica la de bootstra.
+
+- Inline: por defecto van uno abajo del otro, agregando inline en la clase, se posicionan al lado.
+
+- Botones, small mute, grupos de botones (btn-group), tipografía.
+
+- Alineado de texto:
+    derecha, iz, centro, just, may, min, capitalizado, marcado
+
+- NAV
+    navegador de botnorea vertical  u horizontal. Ul con la clas nav..
+    para animaciones se agregan jquery y js de bootstrap.
+
+EStructura:
+container en el body.
+dentro, header, footer, iz, centro, derecha 
