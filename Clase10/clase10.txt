@@ -1,0 +1,28 @@
+Typescript 2da parte
+
+- Proyecto de Typescript:
+
+    npm init -y //package .json
+
+    tsc --init //json de config Typescript
+
+El config tiene còmo se compila de ts a js.
+
+outFile: Configura dónde se van a declarar los archivos js.
+sourceMap: Permite generar el códio intermedio para poder debugear.
+
+- Para Compliar
+    tsc -w // compila todos los archivos y los actualiza automàticamente.
+
+En caso de error al compilar, se muestra por consola el error.
+
+- Para importar
+    namespace
+    include
+
+Para poder visualizar algo desde fuera del archivo necesito el "export". Ya sea una clase o función.
+
+npm install @types/jquery // para jquery con Typescript
+
+- Casteo
+let nombre:string = String($(nombre).val()) // el val del jquery viene como any. Se castea.
