@@ -1,0 +1,16 @@
+{
+  "name": "fronttp",
+  "version": "1.0.0",
+  "description": "Front end del Tp Comanda",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "FM",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jquery": "3.3.29",
+    "bootstrap": "4.3.1",
+    "jquery": "3.4.1"
+  }
+}

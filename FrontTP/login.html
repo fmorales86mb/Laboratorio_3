@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    <!-- Jquery -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    
+    <!-- Scripts -->
+    <script src="./02-js/login.js"></script>
+
+    <!-- Styles -->
+    <link href="./01-css/signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+    <form class="form-signin" id="formLogin" action="">
+        
+        <img class="mb-4" src="./04-img/user_avatar.png" alt="" width="100" height="100">
+        <h1 class="h3 mb-3 font-weight-normal">Acceder</h1>
+        
+        <label for="inputEmail" class="sr-only">Nombre de Usuario</label>
+        <input type="text" id="txtUserName" class="form-control" placeholder="Nombre de Usuario" required="" autofocus="">
+        
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="txtUserPass" class="form-control" placeholder="Password" required="">
+       
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnSingin">Sign in</button>
+        <p class="mt-5 mb-3 ">FM 2019</p>
+    </form>
+    
+</body>
+
+</html>

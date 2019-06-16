@@ -1,0 +1,120 @@
+/* Form */
+.display-form{       
+    position: fixed;
+    right: 0%;
+    top: 0%; 
+    width: 100%;
+    background-color: rgba(165, 166, 168, 0.411);    
+    min-height: 100%;
+    height: auto;
+}
+
+.form-base{
+    /* position: absolute;    */
+    position: fixed;
+    right: 25%;
+    top: 10%; 
+
+    /* animacion: agrego un keyframes y le mando tiempo */
+    animation-name: aparecer;
+    animation-duration: 1s;
+    opacity: 1;
+    width: 50%;
+    border-radius: 5px;
+    background-color: rgb(144, 158, 158);
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+input, select{
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type=text]{
+    width: 100%;
+}
+
+input[type=date]{
+    width: 100%;
+}
+
+select{
+    width: 100%;
+}
+
+input[type=button]{        
+    padding: 9px 15px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn{
+    color: rgb(206, 197, 197);
+    background-color: #525a7c;
+}
+
+.btn:hover{
+    background-color: #4a537a;
+}
+
+.sinError{
+    border: 2px solid rgb(16, 158, 16);
+}
+
+.conError{
+    border: 2px solid rgb(252, 48, 48);
+}
+
+.X{  
+    position: relative;
+    left: 95%;  
+}
+
+.Modificar{   
+    position: relative;
+    left: 2%;
+    width: 45%;
+    background-color: rgb(5, 151, 54);    
+}
+
+.Modificar:hover{
+    background-color: rgb(4, 122, 44);    
+}
+
+.Eliminar{  
+    background-color: rgb(158, 29, 29);
+    position: relative;
+    left: 8%;
+    width: 45%;     
+}
+
+.Eliminar:hover{  
+    background: rgb(146, 12, 12);
+}
+
+/* Genera un desde y un hasta */
+@keyframes aparecer{
+    from{opacity: 0}
+    to{opacity: 1}
+}
+
+label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #252424
+}
+
+.radios-div{
+    padding: 12px 20px;
+    margin: 8px 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #252424
+}
