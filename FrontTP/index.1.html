@@ -16,7 +16,7 @@
 
     <!-- Scripts -->
     <script src="./02-js/index.js"></script>
-    <script src="./02-js/Producto.js"></script>
+    <script src="./02-js/item.js"></script>
 
     <!-- Styles -->
 
@@ -24,34 +24,15 @@
 </head>
 
 <body>
-
-    <!-- NavBar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <a class="navbar-brand" href="#">La Comanda</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Productos</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
     <div class="container-fluid">
+
         <!-- Encabezado -->
         <div class="row">
             <div class="col">
-                <h1>Productos</h1>
+                <h1>Listado con Bootstrap</h1>
             </div>
         </div>
-        
+
         <!-- Cuerpo -->
         <div>
 
@@ -115,11 +96,12 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Rol Encargado</th>                                
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Sector</th>
+                                <th scope="col">Precio</th>
                             </tr>
                         </thead>
-                        <tbody id="bodyTabla">
+                        <tbody>
                         </tbody>
                     </table>
                 </div>
