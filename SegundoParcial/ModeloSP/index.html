@@ -14,6 +14,9 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 
+    <!-- Icons -->
+    <link rel="stylesheet" href="./open-iconic-master/font/css/open-iconic-bootstrap.min.css">
+
     <!-- Scripts -->
     <script src="./js/Persona.js"></script>
     <script src="./js/Empleado.js"></script>
@@ -53,7 +56,7 @@
             <!-- Form -->
             <div class="col-4 bg-secondary pt-3">
                 <form>
-                    <h3>Alta Empleado</h3>
+                    <h3 id="tituloForm">Alta Empleado</h3>
                     <div class="form-group">
                         <label for="txtNombre">Nombre:</label>
                         <input type="text" class="form-control" id="txtNombre" placeholder="Ingrese nombre">
@@ -80,21 +83,19 @@
                     <div class="form-group">
                         <div class="row justify-content-between pl-4 pr-4">
                             <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
-                            <button type="button" class="btn btn-success" id="btnAgregar">Agregar</button>
+                            <button type="button" class="btn btn-success" id="btnAgregar"><span class="oi oi-plus"></span> Agregar</button>
+                            <button type="button" class="btn btn-success" id="btnModificar">Modificar</button>
                         </div>
                     </div>
-
-
                 </form>
             </div>
 
             <!-- Grilla -->
             <div class="col-7 bg-light pt-3">
-                <h3>Lista Empleado</h3>
+                <h3>Lista Empleados</h3>
                 <table class="table table-hover">
                     <thead class="thead">
-                        <tr>
-                            <th  scope="col">id</th>                            
+                        <tr>                                                  
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Edad</th>

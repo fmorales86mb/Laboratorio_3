@@ -25,16 +25,18 @@ var SP;
         Empleado.prototype.EmpleadoToJson = function () {
             return JSON.stringify(this);
         };
+        Empleado.JsonToEmpleado = function (objJson) {
+            var objEmpleado = new Empleado(String(objJson.nombre), String(objJson.apellido), Number(objJson.edad), String(objJson.horario), Number(objJson.legajo));
+            return objEmpleado;
+        };
         Empleado.prototype.CrearElementoTr = function () {
             var tr = document.createElement("tr");
-            var tdId = this.CrearElementoTd("", "id");
             var tdEdad = this.CrearElementoTd(String(this.edad), "edad");
             var tdNombre = this.CrearElementoTd(this.nombre, "nombre");
             var tdApellido = this.CrearElementoTd(this.apellido, "apellido");
             var tdHorario = this.CrearElementoTd(this.horario, "horario");
             var tdLegajo = this.CrearElementoTd(String(this.legajo), "legajo");
             var tdAccion = this.CrearElementoTdAccion();
-            tr.appendChild(tdId);
             tr.appendChild(tdNombre);
             tr.appendChild(tdApellido);
             tr.appendChild(tdEdad);
@@ -46,9 +48,6 @@ var SP;
         Empleado.prototype.CrearElementoTd = function (dato, key) {
             var td = document.createElement("td");
             td.setAttribute("name", key);
-            if (key == "id") {
-                //td.hidden = true;
-            }
             td.innerHTML = dato;
             return td;
         };
@@ -58,6 +57,7 @@ var SP;
             var td = document.createElement("td");
             btnModificar.setAttribute("name", "accionModificar");
             btnBorrar.setAttribute("name", "accionBorrar");
+            $(btnBorrar).click(SP.Manejadora.GetTr);
             btnBorrar.innerHTML = "Borrar";
             btnModificar.innerHTML = "Modificar";
             td.appendChild(btnModificar);
