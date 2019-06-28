@@ -33,7 +33,8 @@ namespace SP{
             let tdApellido = this.CrearElementoTd(this.apellido, "apellido"); 
             let tdHorario = this.CrearElementoTd(this.horario, "horario"); 
             let tdLegajo = this.CrearElementoTd(String(this.legajo), "legajo");     
-            let tdAccion = this.CrearElementoTdAccion();   
+            let tdAccion = this.CrearElementoTdAccion();
+            tdAccion.setAttribute("class", "d-flex justify-content-around");
                         
             tr.appendChild(tdNombre);  
             tr.appendChild(tdApellido);
@@ -47,7 +48,8 @@ namespace SP{
     
         private CrearElementoTd(dato:string, key:string):HTMLTableCellElement{
             let td:HTMLTableCellElement = document.createElement("td");
-            td.setAttribute("name", key);          
+            td.setAttribute("name", key);
+            td.setAttribute("class", "text-center");          
 
             td.innerHTML = dato;
         
@@ -55,20 +57,26 @@ namespace SP{
         }
         
         private CrearElementoTdAccion():HTMLTableCellElement{
-            let btnBorrar = document.createElement("button");
-            let btnModificar = document.createElement("button");
+            let btnBorrar = this.CrearSpanIcon("oi oi-trash");
+            let btnModificar = this.CrearSpanIcon("oi oi-pencil");
             let td:HTMLTableCellElement = document.createElement("td");                        
 
-            btnModificar.setAttribute("name", "accionModificar");
-            btnBorrar.setAttribute("name", "accionBorrar");
-            $(btnBorrar).click(Manejadora.GetTr);
-            btnBorrar.innerHTML="Borrar";
-            btnModificar.innerHTML="Modificar";
+            btnModificar.setAttribute("name", "accionModificar");            
+            $(btnModificar).click(Manejadora.GetTr);  
+
+            btnBorrar.setAttribute("name", "accionBorrar");                                   
+            $(btnBorrar).click(Manejadora.GetTr);                                   
             
             td.appendChild(btnModificar);
             td.appendChild(btnBorrar);
 
             return td;
+        }
+        
+        private CrearSpanIcon(iconClass:string):HTMLElement{
+            let span = document.createElement("span");
+            span.setAttribute("class", iconClass);
+            return span;
         }
     }
 }

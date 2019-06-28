@@ -4,13 +4,16 @@ namespace SP{
         $("#btnCancelar").click(Manejadora.LimpiarFormulario);
         $("#navMostrar").click(Manejadora.MostrarEmpleados); 
         $("#btnModificar").click(Manejadora.AccionModificar); 
+        $("#selHorarioModal").change(Manejadora.FiltrarPorHorario);
+        $("#selHorarioPromedioModal").change(Manejadora.PromedioEdadPorHorario);
         $("#btnModificar").hide(); 
         Manejadora.InitLocalStorage();       
     })  
 
-    const Listado= [{"nombre":"Maria","apellido":"Mora","edad":333,"horario":"2","legajo":24},{"nombre":"Federico","apellido":"Morales","edad":33,"horario":"2","legajo":41234},{"nombre":"Paula","apellido":"Abeledo","edad":32,"horario":"1","legajo":52345},{"nombre":"Juan","apellido":"Narvaja","edad":24,"horario":"2","legajo":566463},{"nombre":"Juan","apellido":"Bach","edad":10,"horario":"1","legajo":643523},{"nombre":"Tito","apellido":"Pulo","edad":13,"horario":"1","legajo":6345234}];
+    const Listado= [{"nombre":"Maria","apellido":"Mora","edad":333,"horario":"Mañana","legajo":24},{"nombre":"Federico","apellido":"Morales","edad":33,"horario":"Mañana","legajo":41234},{"nombre":"Paula","apellido":"Abeledo","edad":32,"horario":"Noche","legajo":52345},{"nombre":"Juan","apellido":"Narvaja","edad":24,"horario":"Mañana","legajo":566463},{"nombre":"Juan","apellido":"Bach","edad":10,"horario":"Noche","legajo":643523},{"nombre":"Tito","apellido":"Pulo","edad":13,"horario":"Noche","legajo":6345234}];
     const ListaKey = "Lista";
     export var Tr:any;
+    export var Lista:any;
 
     export class Manejadora{        
 
@@ -44,10 +47,7 @@ namespace SP{
             for (let i = 0; i<lista.length; i++){
                 let item: Empleado = Empleado.JsonToEmpleado(lista[i]);
                 Manejadora.ElementoToGrilla(item, i);
-            }
-
-            $("[name='accionModificar']").click(Manejadora.GetTr);  
-            //$("[name='accionBorrar']").click(Manejadora.GetTr);            
+            }                                    
         }
 
         public static Modificar(i:number): void {
@@ -70,11 +70,41 @@ namespace SP{
         }
 
         public static FiltrarPorHorario(): void {
+            let lista: any = localStorage.getItem(ListaKey);
+            lista = JSON.parse(lista);            
+
+            if($(this).val() == 1){
+                lista = lista.filter(ite => ite.horario == "Mañana");
+            }
+            else{
+                lista = lista.filter(ite => ite.horario == "Noche");
+            }
+
+            Manejadora.ClearGrid();
             
+            for (let i = 0; i<lista.length; i++){
+                let item: Empleado = Empleado.JsonToEmpleado(lista[i]);
+                Manejadora.ElementoToGrilla(item, i);
+            }    
         }
 
         public static PromedioEdadPorHorario(): void {
+            let lista: any = localStorage.getItem(ListaKey);
+            lista = JSON.parse(lista);                         
+
+            if($(this).val() == 1){
+                lista = lista.filter(ite => ite.horario == "Mañana");                
+            }
+            else{
+                lista = lista.filter(ite => ite.horario == "Noche");
+            }
+
+            let sumatoria:number = lista.reduce(
+                function(suma:number, item:any){        
+                  return suma+=item.edad;
+                }, 0);
             
+            $("#lblPromedio").text("Promedio de " + String(sumatoria));
         }
     
         //#region  Métodos propios     
@@ -98,13 +128,17 @@ namespace SP{
             let edad:number = Number($("#txtEdad").val());
             let legajo:number = Number($("#txtLegajo").val());
             let horario:string = String($("#selHorario").val());                        
+            let index: number = Tr.getAttribute("index");
             
             let objEmpleado: Empleado = new Empleado(
                 nombre, apellido, edad, horario, legajo
             );
 
-            Manejadora.UpdateItemToLocalStorage(objEmpleado, Tr.getAttribute("index"));
-            Tr.replaceWith(objEmpleado.CrearElementoTr());   
+            Manejadora.UpdateItemToLocalStorage(objEmpleado, index);
+            
+            let nuevoTr = objEmpleado.CrearElementoTr();
+            nuevoTr.setAttribute("index", String(index));
+            Tr.replaceWith(nuevoTr);   
             
             $("#tituloForm").text("Alta Empleado");
             $("#btnAgregar").show();
@@ -112,7 +146,7 @@ namespace SP{
         }
 
         private static ElementoToGrilla(objElemento: Empleado, index:any): void{
-            let tr = objElemento.CrearElementoTr();
+            let tr = objElemento.CrearElementoTr();            
             tr.setAttribute("index", index);
             $("#bodyTabla").append(tr);
         }

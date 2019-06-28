@@ -1,0 +1,165 @@
+    {
+      '_id': '570442d1b75c90b1f513805a',
+      'index': 22,
+      'guid': 'e64e7568-4f6f-41f3-9fc6-65329e71b04e',
+      'isActive': false,
+      'balance': '$2,025.84',
+      'age': 28,
+      'name': 'Heather Lucas',
+      'gender': 'female',
+      'company': 'BISBA',
+      'email': 'heatherlucas@bisba.com',
+      'phone': '+1 (888) 485-3050',
+      'address': '394 Branton Street, Dunnavant, Alaska, 588',
+      'about': 'Laboris pariatur ea esse labore. Lorem ea cillum laboris cupidatat aliquip ad fugiat voluptate. Elit amet minim pariatur minim irure irure ullamco qui est nostrud id enim. Excepteur nostrud aliquip velit ex. Et proident voluptate eiusmod cupidatat sunt. Tempor aliquip esse duis qui do dolore duis anim mollit. Incididunt voluptate aliquip labore occaecat nisi anim aute sit nisi magna voluptate amet ad elit.\r\n',
+      'registered': '2014-08-13T05:20:39 +03:00',
+      'latitude': 57.906841,
+      'longitude': -21.85802,
+      'tags': [
+        'cupidatat',
+        'sunt',
+        'minim',
+        'fugiat',
+        'aliqua',
+        'fugiat',
+        'consequat'
+      ],
+      'friends': [
+        {
+          'id': 0,
+          'name': 'Harrington Myers'
+        },
+        {
+          'id': 1,
+          'name': 'Claire Thompson'
+        },
+        {
+          'id': 2,
+          'name': 'Ryan Trevino'
+        }
+      ],
+      'greeting': 'Hello, Heather Lucas! You have 6 unread messages.',
+      'favoriteFruit': 'strawberry'
+    }
+  ];
+
+   var lib = {};
+  /*
+    realizar las operaciones usando los metosos map,  reduce y filter y combinaciones entre ellos
+  */
+
+  // Retornar una array de strings (el nombre de los usarios de sexo femenino)
+  lib.femaleUsers = function () {
+    return datos.filter(
+      item=>item.gender == "female"
+    ).map(
+      item =>item.name
+    );      
+  };
+
+  // Retornar una array de strings (el email de los usarios de sexo masculino)
+  lib.maleUsersEmails = function () {
+    return datos.filter(
+      item => item.gender == "male"
+    ).map(
+      item => item.email
+    );
+  };
+
+  // Retornar un array de objetos que solo contengan las claves name, email y age, 
+  // de todos los usuarios mayores que '25'
+  lib.userOlderThan = function () {
+    return datos.filter(
+      item => item["age"] > 25
+    ).map(
+      item => obj = {
+        name: item.name,
+        email: item.email,
+        age: item.age
+      }
+    );
+  };
+
+  // Retornar un objeto que contenga solo el nombre y la edad (name y age) del usuario 
+  // mas grande.
+  lib.olderUser = function () {
+
+    return datos.reduce(
+      function(edadMax, itme){
+        if (edadMax.age < item.age){
+          edadMax.age = item.age;
+          edadMax.name = item.name;
+        }
+        return edadMax;
+      }, {age: 0, name = "" });
+
+
+    var mayorEdad = datos.reduce(
+      function(edad, item){
+        if(item.age > edad){
+          edad = item.age;
+        }
+        return edad;
+      }
+      , 
+      -1
+    );
+
+    return datos.filter(
+      item => item.age == mayorEdad
+    ).map(
+      item => obj = {
+        nombre: item.name,
+        edad: item.age
+      }
+    );
+  };
+
+  // Retornar el promedio de edad de los usuarios (number)
+  lib.userAgeAverage = function () {   
+    var sum = datos.reduce(
+      function(sumatoria, item){        
+        return sumatoria+=item.age;
+      }, 0);
+      
+    return sum/datos.length;
+  };
+
+  // Retornar el promedio de edad de los usuarios hombres (number)
+  lib.userMaleAgeAverage = function () {    
+    var hombres = datos.filter(
+      item => item.gender == "male"
+    );
+    
+    var sum = hombres.reduce(
+      function(sumatoria, item){
+        return sumatoria +=item.age;
+      }, 0);      
+    
+    return sum/hombres.length;
+  };
+
+  // Retornar el promedio de edad de los usuarios mujeres (number)
+  lib.userFemaleAgeAverage = function () {
+    var mujeres = datos.filter(
+      item => item.gender == "female" // se puede pasar un segundo parametro que es el index
+    );
+    
+    var sum = mujeres.reduce(
+      function(sumatoria, item){
+        return sumatoria +=item.age;
+      }, 0);      
+    
+    return sum/mujeres.length;
+  };
+
+  // Retornar un objeto  de etiquetas (tags)
+  // cada property del objeto es el nombre de una etiqueta
+  // y el value es la cantidad de usuarios que tienene esa etiqueta
+  lib.tagCloud = function () {
+    datos.reduce(
+      function(tags, item){
+        
+      }
+    )
+  };

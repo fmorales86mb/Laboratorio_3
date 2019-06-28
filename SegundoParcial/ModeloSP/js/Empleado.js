@@ -37,6 +37,7 @@ var SP;
             var tdHorario = this.CrearElementoTd(this.horario, "horario");
             var tdLegajo = this.CrearElementoTd(String(this.legajo), "legajo");
             var tdAccion = this.CrearElementoTdAccion();
+            tdAccion.setAttribute("class", "d-flex justify-content-around");
             tr.appendChild(tdNombre);
             tr.appendChild(tdApellido);
             tr.appendChild(tdEdad);
@@ -48,21 +49,26 @@ var SP;
         Empleado.prototype.CrearElementoTd = function (dato, key) {
             var td = document.createElement("td");
             td.setAttribute("name", key);
+            td.setAttribute("class", "text-center");
             td.innerHTML = dato;
             return td;
         };
         Empleado.prototype.CrearElementoTdAccion = function () {
-            var btnBorrar = document.createElement("button");
-            var btnModificar = document.createElement("button");
+            var btnBorrar = this.CrearSpanIcon("oi oi-trash");
+            var btnModificar = this.CrearSpanIcon("oi oi-pencil");
             var td = document.createElement("td");
             btnModificar.setAttribute("name", "accionModificar");
+            $(btnModificar).click(SP.Manejadora.GetTr);
             btnBorrar.setAttribute("name", "accionBorrar");
             $(btnBorrar).click(SP.Manejadora.GetTr);
-            btnBorrar.innerHTML = "Borrar";
-            btnModificar.innerHTML = "Modificar";
             td.appendChild(btnModificar);
             td.appendChild(btnBorrar);
             return td;
+        };
+        Empleado.prototype.CrearSpanIcon = function (iconClass) {
+            var span = document.createElement("span");
+            span.setAttribute("class", iconClass);
+            return span;
         };
         return Empleado;
     }(SP.Persona));

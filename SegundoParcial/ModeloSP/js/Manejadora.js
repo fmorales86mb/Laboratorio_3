@@ -6,10 +6,12 @@ var SP;
         $("#btnCancelar").click(Manejadora.LimpiarFormulario);
         $("#navMostrar").click(Manejadora.MostrarEmpleados);
         $("#btnModificar").click(Manejadora.AccionModificar);
+        $("#selHorarioModal").change(Manejadora.FiltrarPorHorario);
+        $("#selHorarioPromedioModal").change(Manejadora.PromedioEdadPorHorario);
         $("#btnModificar").hide();
         Manejadora.InitLocalStorage();
     });
-    var Listado = [{ "nombre": "Maria", "apellido": "Mora", "edad": 333, "horario": "2", "legajo": 24 }, { "nombre": "Federico", "apellido": "Morales", "edad": 33, "horario": "2", "legajo": 41234 }, { "nombre": "Paula", "apellido": "Abeledo", "edad": 32, "horario": "1", "legajo": 52345 }, { "nombre": "Juan", "apellido": "Narvaja", "edad": 24, "horario": "2", "legajo": 566463 }, { "nombre": "Juan", "apellido": "Bach", "edad": 10, "horario": "1", "legajo": 643523 }, { "nombre": "Tito", "apellido": "Pulo", "edad": 13, "horario": "1", "legajo": 6345234 }];
+    var Listado = [{ "nombre": "Maria", "apellido": "Mora", "edad": 333, "horario": "Mañana", "legajo": 24 }, { "nombre": "Federico", "apellido": "Morales", "edad": 33, "horario": "Mañana", "legajo": 41234 }, { "nombre": "Paula", "apellido": "Abeledo", "edad": 32, "horario": "Noche", "legajo": 52345 }, { "nombre": "Juan", "apellido": "Narvaja", "edad": 24, "horario": "Mañana", "legajo": 566463 }, { "nombre": "Juan", "apellido": "Bach", "edad": 10, "horario": "Noche", "legajo": 643523 }, { "nombre": "Tito", "apellido": "Pulo", "edad": 13, "horario": "Noche", "legajo": 6345234 }];
     var ListaKey = "Lista";
     var Manejadora = /** @class */ (function () {
         function Manejadora() {
@@ -38,8 +40,6 @@ var SP;
                 var item = SP.Empleado.JsonToEmpleado(lista[i]);
                 Manejadora.ElementoToGrilla(item, i);
             }
-            $("[name='accionModificar']").click(Manejadora.GetTr);
-            //$("[name='accionBorrar']").click(Manejadora.GetTr);            
         };
         Manejadora.Modificar = function (i) {
             $("#tituloForm").text("Modificar Empleado");
@@ -57,8 +57,33 @@ var SP;
             Manejadora.MostrarEmpleados();
         };
         Manejadora.FiltrarPorHorario = function () {
+            var lista = localStorage.getItem(ListaKey);
+            lista = JSON.parse(lista);
+            if ($(this).val() == 1) {
+                lista = lista.filter(function (ite) { return ite.horario == "Mañana"; });
+            }
+            else {
+                lista = lista.filter(function (ite) { return ite.horario == "Noche"; });
+            }
+            Manejadora.ClearGrid();
+            for (var i = 0; i < lista.length; i++) {
+                var item = SP.Empleado.JsonToEmpleado(lista[i]);
+                Manejadora.ElementoToGrilla(item, i);
+            }
         };
         Manejadora.PromedioEdadPorHorario = function () {
+            var lista = localStorage.getItem(ListaKey);
+            lista = JSON.parse(lista);
+            if ($(this).val() == 1) {
+                lista = lista.filter(function (ite) { return ite.horario == "Mañana"; });
+            }
+            else {
+                lista = lista.filter(function (ite) { return ite.horario == "Noche"; });
+            }
+            var sumatoria = lista.reduce(function (suma, item) {
+                return suma += item.edad;
+            }, 0);
+            $("#lblPromedio").text("Promedio de " + String(sumatoria));
         };
         //#region  Métodos propios     
         Manejadora.GetTr = function () {
@@ -78,9 +103,12 @@ var SP;
             var edad = Number($("#txtEdad").val());
             var legajo = Number($("#txtLegajo").val());
             var horario = String($("#selHorario").val());
+            var index = SP.Tr.getAttribute("index");
             var objEmpleado = new SP.Empleado(nombre, apellido, edad, horario, legajo);
-            Manejadora.UpdateItemToLocalStorage(objEmpleado, SP.Tr.getAttribute("index"));
-            SP.Tr.replaceWith(objEmpleado.CrearElementoTr());
+            Manejadora.UpdateItemToLocalStorage(objEmpleado, index);
+            var nuevoTr = objEmpleado.CrearElementoTr();
+            nuevoTr.setAttribute("index", String(index));
+            SP.Tr.replaceWith(nuevoTr);
             $("#tituloForm").text("Alta Empleado");
             $("#btnAgregar").show();
             $("#btnModificar").hide();
