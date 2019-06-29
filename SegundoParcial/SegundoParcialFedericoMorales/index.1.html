@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SegundoParcial</title>
+
+    <!-- Jquery -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="./open-iconic-master/font/css/open-iconic-bootstrap.min.css">
+
+    <!-- Scripts -->
+    <script src="./js/Persona.js"></script>
+    <script src="./js/Empleado.js"></script>
+    <script src="./js/Manejadora.js"></script>
+
+    <!-- Styles -->
+
+</head>
+
+<body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="#">Lista</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" id="navMostrar">Mostrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Formulario</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false">Ver</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" id="btnPromedio" data-toggle="modal"
+                            data-target="#FiltroPromedioModal">Promedio por horario</a>
+                        <a class="dropdown-item" id="btnFiltrarHorario" data-toggle="modal"
+                            data-target="#FiltroHorarioModal">Filtrar por horario</a>
+                        <a class="dropdown-item" id="btnNombreApellido" data-toggle="modal"
+                            data-target="#NombreApellidoModal">Sólo nombre y apellido</a>
+                        <!-- <div class="dropdown-divider"></div> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row m-3">
+
+            <!-- Form -->
+            <div class="col-4 bg-secondary pt-3">
+                <form>
+                    <h3 id="tituloForm">Alta Empleado</h3>
+                    <div class="form-group">
+                        <label for="txtNombre">Nombre:</label>
+                        <input type="text" class="form-control" id="txtNombre" placeholder="Ingrese nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNombre">Apellido:</label>
+                        <input type="text" class="form-control" id="txtApellido" placeholder="Ingrese nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNombre">Edad:</label>
+                        <input type="text" class="form-control" id="txtEdad" placeholder="Ingrese nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNombre">Legajo:</label>
+                        <input type="text" class="form-control" id="txtLegajo" placeholder="Ingrese nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="selSector">Horario:</label>
+                        <select class="form-control" id="selHorario">
+                            <option>Mañana</option>
+                            <option>Noche</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="row justify-content-around pl-4 pr-4">
+                            <button type="button" class="btn btn-danger" id="btnCancelar">Cancelar</button>
+                            <button type="button" class="btn btn-success" id="btnAgregar"><span
+                                    class="oi oi-plus"></span> Agregar</button>
+                            <button type="button" class="btn btn-success" id="btnModificar">Modificar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Grilla -->
+            <div class="col-7 bg-light pt-3">
+                <h3>Lista Empleados</h3>
+                <table class="table table-hover">
+                    <thead class="thead">
+                        <tr>
+                            <th class="text-center">Nombre</th>
+                            <th class="text-center">Apellido</th>
+                            <th class="text-center">Edad</th>
+                            <th class="text-center">Legajo</th>
+                            <th class="text-center">Turno</th>
+                            <th class="text-center">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyTabla">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal FiltroPromedioModal-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="FiltroPromedioModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Promedio por horario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="selSector">Horario:</label>
+                            <select class="form-control" id="selHorarioPromedioModal">
+                                <option value="1">Mañana</option>
+                                <option value="2">Noche</option>
+                            </select>
+                            <p class="text-muted" id="lblPromedio"></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal FiltroHorarioModal-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="FiltroHorarioModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Filtrar por horario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="selSector">Horario:</label>
+                            <select class="form-control" id="selHorarioModal">
+                                <option value="1">Mañana</option>
+                                <option value="2">Noche</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    <!-- <button type="button" class="btn btn-primary">Filtrar</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal NombreApellidoModal-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="NombreApellidoModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Filtrar por horario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="selSector">Horario:</label>
+                            <select class="form-control" id="selHorarioModal">
+                                <option value="1">Mañana</option>
+                                <option value="2">Noche</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

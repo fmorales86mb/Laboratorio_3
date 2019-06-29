@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SegundoParcial</title>
+
+    <!-- Jquery -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="./open-iconic-master/font/css/open-iconic-bootstrap.min.css">
+
+    <!-- Scripts -->
+    <script src="./js/Vehiculo.js"></script>
+    <script src="./js/Camioneta.js"></script>
+    <script src="./js/Auto.js"></script>
+    <script src="./js/Manejadora.js"></script>
+
+    <!-- Styles -->
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <!-- Formulario -->
+        <div class="row m-2">
+
+            <!-- Button trigger modal -->
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="btnAlta" data-toggle="modal" data-target="#AgregarModal">
+                    Alta
+                </button>
+                <button type="button" class="btn btn-primary" id="btnLimpiar">
+                    Limpiar
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="AgregarModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Alta Vehículo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="txtNombre">id:</label>
+                                    <input type="text" class="form-control" id="txtId" placeholder="Ingrese nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtNombre">Marca:</label>
+                                    <input type="text" class="form-control" id="txtMarca" placeholder="Ingrese nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtNombre">Modelo:</label>
+                                    <input type="text" class="form-control" id="txtModelo" placeholder="Ingrese nombre">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="numPrecio">Precio:</label>
+                                    <input type="text" class="form-control" id="numPrecio" placeholder="Ingrese precio">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="selSector">Tipo:</label>
+                                    <select class="form-control" id="selTipo">
+                                        <option value="1">Camioneta</option>
+                                        <option value="2">Auto</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="numPuertas">Cantidad de Puertas:</label>
+                                    <input type="text" class="form-control" id="numPuertas" placeholder="Ingrese cantidad de puertas">
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="CheckCuatroXCuatro">
+                                    <label class="form-check-label" for="CheckCuatroXCuatro">
+                                        Cuatro x Cuatro
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" id="btnAgregar">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+        <!-- Filtros -->
+        <div class="row m-2">
+                <h3>Filtros</h3>
+            </div>
+        <div class="row m-3">
+            <form class="form-inline">
+                <div class="form-group m-1">
+                    <label for="selTipor">Filtrar por:</label>
+                    <select class="form-control m-2" id="selTipor">
+                        <option value="1">Camioneta</option>
+                        <option value="2">Auto</option>
+                    </select>
+                </div>
+
+                <div class="form-group ml-2 mr-2">
+                    <label for="txtPromedio">Filtrar por:</label>
+                    <input type="text" class="form-control" id="lblPromedio">
+                </div>
+
+                <div class="form-group m-1">
+                    <button type="button" class="btn btn-primary" id="btnPromedio">Calcular Promedio</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Campos mostrados -->
+        <div class="row m-2">
+                <h3>Campos Mostrados Tildar los campos a mostrar</h3>
+            </div>
+        <div class="row m-3">
+            <form class="form-inline">
+                <div class="form-check ml-2 mr-2">
+                    <input class="form-check-input" type="checkbox" value="check" id="checkId">
+                    <label class="form-check-label" for="CheckCuatroXCuatro">
+                        Id
+                    </label>
+                </div>
+
+                <div class="form-check ml-2 mr-2">
+                    <input class="form-check-input" type="checkbox" value="" id="checkMarca">
+                    <label class="form-check-label" for="CheckCuatroXCuatro">
+                        Marca
+                    </label>
+                </div>
+
+                <div class="form-check ml-2 mr-2">
+                    <input class="form-check-input" type="checkbox" value="" id="checkModelo">
+                    <label class="form-check-label" for="CheckCuatroXCuatro">
+                        Modelo
+                    </label>
+                </div>
+                <div class="form-check ml-2 mr-2">
+                    <input class="form-check-input" type="checkbox" value="" id="checkPrecio">
+                    <label class="form-check-label" for="CheckCuatroXCuatro">
+                        Precio
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <!-- Grilla -->
+        <div class="row m-3 bg-light pt-3">
+            <h3>Lista de Vehículos</h3>
+            <table class="table table-hover">
+                <thead class="thead">
+                    <tr>
+                        <th class="text-center">id</th>
+                        <th class="text-center">Marca</th>
+                        <th class="text-center">Modelo</th>
+                        <th class="text-center">Precio</th>
+                        <th class="text-center">Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyTabla">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
